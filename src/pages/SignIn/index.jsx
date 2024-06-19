@@ -7,14 +7,12 @@ import { useAuth } from '../../hooks/auth'
 import { Input } from '../../components/InputText'
 import { Button } from '../../components/Button'
 import { Toaster } from 'sonner'
-// import { MessageAlert } from '../../components/MessageAlert'
 
 export function SignIn() {
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  // const [messageAlert, setMessageAlert] = useState(false)
   const { signIn } = useAuth()
-  function handleSingnIn() {
+  function handleSignIn() {
     signIn({ email, password })
   }
   return (
@@ -25,7 +23,7 @@ export function SignIn() {
         <h2>Faça seu login</h2>
         <Input placeholder="E-mail" type="text" icon={FiMail} onChange={e => setEmail(e.target.value)}></Input>
         <Input placeholder="Senha" type="password" autoComplete="on" icon={FiLock} onChange={e => setPassword(e.target.value)}></Input>
-        <Button title="Entrar" onClick={handleSingnIn}></Button>
+        <Button title="Entrar" onClick={handleSignIn}></Button>
 
         <Link to="/register">Criar conta</Link>
       </Form>

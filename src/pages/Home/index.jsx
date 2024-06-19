@@ -10,7 +10,7 @@ import { Input } from '../../components/InputText'
 import { ButtonText } from '../../components/ButtonText'
 import { api } from '../../services/api'
 export function Home() {
-  const navigation = useNavigate()
+  const navigate = useNavigate()
   const [search, setSearch] = useState('')
   const [tags, setTags] = useState([])
   const [selectedTags, setSelectedTags] = useState([])
@@ -30,7 +30,7 @@ export function Home() {
   }
 
   function handleDetailsNotes(id) {
-    navigation(`/details/${id}`)
+    navigate(`/details/${id}`)
   }
   useEffect(() => {
     async function fetchTags() {
@@ -78,7 +78,7 @@ export function Home() {
           {
             notes.length > 0 ? notes.map(note => (
               <Note key={String(note.id)} data={note} onClick={() => handleDetailsNotes(note.id)} />
-            )) : <h3>Nunhuma nota cadastra ainda !</h3>
+            )) : <h3>Nenhuma nota cadastra ainda !</h3>
           }
         </Section>
       </Content>

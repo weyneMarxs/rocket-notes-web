@@ -11,7 +11,7 @@ import { api } from '../../services/api'
 
 export function Details() {
   const params = useParams()
-  const navigation = useNavigate()
+  const navigate = useNavigate()
   const [data, setData] = useState(null)
 
   async function handleRemove() {
@@ -20,14 +20,14 @@ export function Details() {
       await api.delete(`/notes/${params.id}`).then((response) => {
         toast.success('Nota deletada com sucesso !')
         setTimeout(() => {
-          navigation('/')
+          navigate('/')
         }, 1000)
       })
     }
   }
 
   function handleBack() {
-    navigation(-1)
+    navigate(-1)
   }
   useEffect(() => {
     async function fetchNote() {
